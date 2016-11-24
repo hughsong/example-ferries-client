@@ -1,7 +1,5 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Welcome extends Application {
 
 	function __construct()
@@ -19,8 +17,10 @@ class Welcome extends Application {
 		$this->load->helper('formfields');
 		$this->data['title'] = 'Ferry Trip Planner';
 		$this->data['pagebody'] = 'planner';
+
 		// get all the ports from our model
 		$ports = $this->ferryschedule->getPorts();
+
 		$this->data['leaving'] = makeCombobox("Leaving from", "leaving", "TS", $ports);
 		$this->data['destination'] = makeCombobox("Destination", "destination", "LH", $ports);
 		$this->data['submit'] = makeSubmitButton("Submit", "Submit");
